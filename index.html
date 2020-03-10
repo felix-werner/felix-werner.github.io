@@ -49,6 +49,8 @@
 		  <h1 class="header-author"><a href="/">SP</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">He who knows how to flatter also knows how to slander.</p>
+		
 
 		<nav class="header-menu">
 			<ul>
@@ -104,6 +106,8 @@
 			<hgroup>
 			  <h1 class="header-author js-header-author">SP</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>He who knows how to flatter also knows how to slander.<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -161,7 +165,7 @@
 
         
         <a href="/2020/splay/" class="archive-article-date">
-  	<time datetime="2020-03-04T23:56:15.879Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
+  	<time datetime="2020-03-09T10:27:41.416Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
 </a>
         
       </header>
@@ -185,11 +189,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -242,7 +246,7 @@
 
         
         <a href="/2020/SAM/" class="archive-article-date">
-  	<time datetime="2020-03-04T23:56:15.879Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
+  	<time datetime="2020-03-09T10:27:41.409Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
 </a>
         
       </header>
@@ -266,15 +270,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -285,6 +289,160 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/SAM/">Show All >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-russian-people" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/russian-people/">russian-people</a>
+    </h1>
+  
+
+        
+        <a href="/2020/russian-people/" class="archive-article-date">
+  	<time datetime="2020-03-09T10:27:41.403Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ED这题<del>为什么叫苏联人啊</del>~是一道典型的模拟题目。</p>
+<p>直接模拟每一个战车与主教所能到达的地方，即可判断出国王能够放置在哪里。</p>
+<h3 id="战车"><a href="#战车" class="headerlink" title="战车"></a>战车</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">castle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">// (x,y)表示战车的坐标</span></span><br><span class="line">  <span class="comment">// 往上</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = x - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[i][y]) <span class="keyword">break</span>;</span><br><span class="line">    notok[i][y] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 往下</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = x + <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[i][y]) <span class="keyword">break</span>;</span><br><span class="line">    notok[i][y] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 往左</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = y - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x][i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x][i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 往右</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = y + <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x][i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x][i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码的意义为，模拟战车珂以行动到的地方。其中第一段代码是模拟战车往上的攻击方式。如果$(x_1,y_1)$能够被$(x,y)$向上行驶攻击到，那么说明：</p>
+<ul>
+<li><p>$y_1=y$</p>
+</li>
+<li><p>$x&lt;x_1$</p>
+</li>
+<li><p>$\forall  x_1&lt;i&lt;x$，$board[i][y]$没有棋子。</p>
+</li>
+</ul>
+<p>所以，从 $i=x-1$ 开始，每次 $i$ 减去 $1$，如果遇到了其他的棋子，那么就停止循环，并把每一个遍历过的棋盘格子全部打上标记，表示这个格子不能放国王。向下、向左、向右的操作与向上同理。</p>
+<h3 id="主教"><a href="#主教" class="headerlink" title="主教"></a>主教</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bishop</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 左上</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(x, y); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x - i][y - i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x - i][y - i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 右上</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(x, <span class="number">8</span> - y); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x - i][y + i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x - i][y + i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 左下</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(y, <span class="number">8</span> - x); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x + i][y - i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x + i][y - i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 右下</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(<span class="number">8</span> - y, <span class="number">8</span> - x); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x + i][y + i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x + i][y + i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>左上：对于格子 $(x,y)$ 左上角的格子，必然为 $(x-i,y-i)$ 的形式，那么便要求 $x-i\geq 0, y-i\ge 0$。所以$i\leq x,i\le y$。所以 $i \le \min(x,y)$。所以 $i$ 从 $1$ 开始遍历到 $\min(x,y)$，每次研究的格子便是 $(x-i,y-i)$。如果这个格子已经又棋子，那么就结束循环。否则就打上不能放置的标记。右上、右下、左下同理。</p>
+<h3 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> board[<span class="number">10</span>][<span class="number">10</span>], ans;</span><br><span class="line"><span class="keyword">bool</span> notok[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">castle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = x - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[i][y]) <span class="keyword">break</span>;</span><br><span class="line">    notok[i][y] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = x + <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[i][y]) <span class="keyword">break</span>;</span><br><span class="line">    notok[i][y] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = y - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x][i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x][i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = y + <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x][i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x][i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bishop</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(x, y); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x - i][y - i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x - i][y - i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(x, <span class="number">8</span> - y); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x - i][y + i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x - i][y + i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(y, <span class="number">8</span> - x); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x + i][y - i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x + i][y - i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min(<span class="number">8</span> - y, <span class="number">8</span> - x); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x + i][y + i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x + i][y + i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">8</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">char</span> c; <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">      <span class="keyword">if</span> (c == <span class="string">'.'</span>) board[i][j] = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'R'</span>) board[i][j] = <span class="number">1</span>, notok[i][j] = <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">else</span> board[i][j] = <span class="number">2</span>, notok[i][j] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">8</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (board[i][j] == <span class="number">1</span>) castle(i, j);</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (board[i][j] == <span class="number">2</span>) bishop(i, j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">8</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (notok[i][j] == <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'1'</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先输入棋盘，使用数字存储。如果是战车，那么设为 $1$，如果是空地，那么设为 $0$，如果是主教，那么设为 $2$。</p>
+<p>接着遍历整个棋盘打标记，最后输出即可。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/russian-people/">Show All >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-cha-fen-yue-shu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/cha-fen-yue-shu/">差分约束系统学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/cha-fen-yue-shu/" class="archive-article-date">
+  	<time datetime="2020-03-09T10:27:41.396Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SPFA-判负环"><a href="#SPFA-判负环" class="headerlink" title="SPFA 判负环"></a>SPFA 判负环</h1><p><del>关于SPFA，它复活了。</del></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/cha-fen-yue-shu/">Show All >></a>
         </p>
       
 
@@ -428,15 +586,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
@@ -589,21 +747,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

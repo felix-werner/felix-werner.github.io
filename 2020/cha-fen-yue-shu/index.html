@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://felix-werner.github.io">
-  <title>Suffix Automoton 学习笔记 | FLWN&#39;s Blog</title>
+  <title>差分约束系统学习笔记 | FLWN&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先日膜foin生鲜 我是在太菜了Uncle SAM 学了第二遍才懂">
+  <meta name="description" content="SPFA 判负环关于SPFA，它复活了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Suffix Automoton 学习笔记">
-<meta property="og:url" content="http://felix-werner.github.io/2020/SAM/index.html">
+<meta property="og:title" content="差分约束系统学习笔记">
+<meta property="og:url" content="http://felix-werner.github.io/2020/cha-fen-yue-shu/index.html">
 <meta property="og:site_name" content="FLWN&#39;s Blog">
-<meta property="og:description" content="首先日膜foin生鲜 我是在太菜了Uncle SAM 学了第二遍才懂">
+<meta property="og:description" content="SPFA 判负环关于SPFA，它复活了。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2020/02/16/SZwVRHc5Cl7Ya9e.png">
-<meta property="og:image" content="https://i.loli.net/2020/02/16/gezxoXuw3hdYVPy.png">
-<meta property="og:image" content="https://i.loli.net/2020/02/16/HLUz85K4IyQvkYZ.png">
-<meta property="article:published_time" content="2020-03-09T10:27:41.409Z">
-<meta property="article:modified_time" content="2020-03-05T05:44:18.813Z">
+<meta property="article:published_time" content="2020-03-09T10:27:41.396Z">
+<meta property="article:modified_time" content="2020-03-07T04:40:40.598Z">
 <meta property="article:author" content="SP">
 <meta property="article:tag" content="学习笔记">
-<meta property="article:tag" content="字符串">
-<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/02/16/SZwVRHc5Cl7Ya9e.png">
   
     <link rel="alternative" href="/atom.xml" title="FLWN&#39;s Blog" type="application/atom+xml">
   
@@ -161,71 +155,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SAM" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-cha-fen-yue-shu" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Suffix Automoton 学习笔记
+      差分约束系统学习笔记
     </h1>
   
 
         
-        <a href="/2020/SAM/" class="archive-article-date">
-  	<time datetime="2020-03-09T10:27:41.409Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
+        <a href="/2020/cha-fen-yue-shu/" class="archive-article-date">
+  	<time datetime="2020-03-09T10:27:41.396Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先日膜foin生鲜</p>
-<p>我是在太菜了<del>Uncle</del> SAM 学了第二遍才懂</p>
-<a id="more"></a>
-<p>如果想在一个有向无环图中表示一个字符串的字串，必须满足一下四条性质：</p>
-<ul>
-<li>有<strong>一个源点</strong>，许多个终止点，其中每条边上都有一个字符，从源点到任意一个终止点的路径上的边能构成一个字符串。</li>
-<li>对于这一个源点，到任意一个节点的路径上所组成的字符串，均为原串的子串，任意一个不能表示为源点到一个节点上路径组成的字串的字符串，均不为原串的字串。即每一个原串的字串，与源点到每一个节点的路径<strong>一一对应</strong>。</li>
-<li>对于源点，到每一个终止节点的路径形成的字符串均为原串的<strong>后缀</strong>。</li>
-<li>对于源点，到任意一个节点的路径所形成的字符串<strong>两两不同</strong>。</li>
-</ul>
-<p>显然 Trie 树完全可以满足这个要求.</p>
-<p>以字符串”AKIOI”为例，将其后缀 “I”, “OI”, “IOI”, “KIOI”,”AKIOI” 依次加入即可得到下图的字典树, 其中蓝点为源点，黄点为终止点。</p>
-<p><img src="https://i.loli.net/2020/02/16/SZwVRHc5Cl7Ya9e.png" alt="Trie.png"></p>
-<p>但是它有许多重复的、可以合并的节点，导致了它的节点数量是$\Theta(n^2)$级别的。所以，需要构造一个节点数量、边数量尽可能少的一个DAG满足以上四个要求。</p>
-<h1 id="SAM的性质"><a href="#SAM的性质" class="headerlink" title="SAM的性质"></a>SAM的性质</h1><ul>
-<li>对于一个字串$p$，可能出现在原串的若干个位置。由所有出现位置的右端点的编号组成的几何，定义为$\text{endpos(p)}$，例如对于字符串”LSWNWNWNAKWNIOI”, $\text{endpos}(\text{WN})=\{4,6,8,12\}$。</li>
-<li>对于所有的 endpos ​值相同的字符串，将这些字符串归为一个<strong>endpos等价类</strong>。</li>
-</ul>
-<p>那么易得下面三个结论：</p>
-<ul>
-<li><p>1.对于字符串$s$和字符串$t$，且$|S|\leq|T|$若$\text{endpos} (s)=\text{endpos}(t)$，那么$s$为$t$的后缀。</p>
-</li>
-<li><p>2.对于字符串$s$和字符串$t$，且$|S| \leq |T|$要么$\text{endpos}(s) \subseteq \text{endpos}(t)$，要么$\text{endpos}(s)\cup \text{endpos}(t)= \varnothing$</p>
-</li>
-<li><p>3.对于所有的 endpo s等价类，将其中的字符串按照长度排序，排序后为$a_{1},a_{2} \cdots, a_{n}$, 满足$|a_{i+1}-a_{i}|=1, i=1,2,\cdots,n-1$。</p>
-</li>
-</ul>
-<p>同时也可以得到下面两个个结论：</p>
-<ul>
-<li><p>4.endpos 等价类的数量是$\Theta(n)$级别的，在下面的证明中，将 endpos 等价类简称为<strong>类</strong>。</p>
-<p>证明：对于一个类中最长的字符串$p$,如果在$p$前添加任意一个字符，并且保证新形成的字符串$s$仍然为原串的字串，那么有$\text{endpos}(s)\subseteq \text{endpos}(p)$。同时，如果在$p$前添加另外一个字符，保证新形成的字符串$r$也为原串的字串，那么也有$\text{endpos}(r)\subseteq \text{endpos}(p)$，但是显然有$\text{endpos(r)} \cup \text{endpos(s)} = \varnothing$，同时$s$和$t$不属于这个类。将所有如同$s$,$t$的字符串取出，组成一个集合$add$。那么每个字符串都在一个新的类中，且每个字符串的$endpos$值都是$\text{endpos}(p)$的子集，并且$\forall a,b \in add, \text{endpos}(a) \cup \text{endpos}(b)=\varnothing$。所以，相当于把原集合分割成若干个集合，并且保留原集合，那么因为每个$endpos$都是从$\{1,2,3 \cdots,n\}$中分割出来的，所以$endpos$等价类的个数为$\Theta(n)$级别的。得证。分割的过程如下图。这棵树有一个<del>睿智的</del>名字，叫<strong>Parent Tree.</strong></p>
-<p><img src="https://i.loli.net/2020/02/16/gezxoXuw3hdYVPy.png" alt="Parent Tree.png"></p>
-</li>
-<li><p>5.对于一个 endpos 等价类$a$，既有最长字串，又有最短字串。定义其在 Parent Tree 中的父亲等价类为$\operatorname{fa}(a)$,定义$a$中最长字符串的长度为$\text{maxlen}(a)$,定义$a$中最短字符串的长度为$\text{minlen}(a)$。那么$\text{maxlen}(\text{fa}(a))+1=\text{minlen}(a)$。这个结论非常容易得到。下面以字符串 “LLSLSL” 为例子画出整个 parent  tree 。<img src="https://i.loli.net/2020/02/16/HLUz85K4IyQvkYZ.png" alt="Parent Tree demo.png"></p>
-<p>而SAM就是在Parent Tree上建成的，SAM上的节点就是 Parent Tree 上的节点，只是其中的边连的有所不同。其中空串所属节点就是SAM的源点，终止节点就是原串所在节点。</p>
-</li>
-</ul>
-<p>所以我们只要在Parent Tree上连一些边，使得从源点开始到任意节点$i$的路径上形成的字符串均为该节点$i$所代表的 endpos 等价类。于是只需要证明后缀自动机的边数为$\mathcal O(n)$量级的就可以了。~~但是我真的懒得证了，所以我们不妨假设是这样的。</p>
-<p>所以，总结一下：<strong>对于一个字符串 $S$， 它的 SAM 是一个能够识别，且仅能够识别 $S$ 的所有后缀的自动机。 即 $\text{SAM}(x)=True$，当且仅当 $x$ 为$S$ 的后缀。</strong> </p>
-<h1 id="一些定义"><a href="#一些定义" class="headerlink" title="一些定义"></a>一些定义</h1><p>对于一个自动机 $K$， 如果 $K$ 能够识别字符串 $S$， 那么记为 $K(S)=True$，否则 $K(S)=False$。</p>
-<p>$\text{trans}(x,ch)$为 $x$ 状态下读入字符 $ch$ 所达到的状态。如果这个状态不存在，记为 $\text{trans}(x,ch)=\text{NULL}$。其中$\text{NULL}$表示不存在的状态，$trans(\text{NULL},ch)=\text{NULL}$。</p>
-<p>$\text{trans}(x,str)$定义为在 $x$ 状态下读入字符串 $str$ 而到达的状态。伪代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">trans(x, str)</span><br><span class="line">	pos &#x3D; x</span><br><span class="line">	for i &#x3D; 1 to length of str</span><br><span class="line">		ch &#x3D; the ith character of str</span><br><span class="line">		pos &#x3D; trans(pos, ch)</span><br><span class="line">	return pos</span><br></pre></td></tr></table></figure>
-<p>那么对于一个自动机 $K$，它所能识别的字符串 $str$ 就是所有使得 $\text{trans}(init, str) \subset end$ 的字符串。那么记作 $\text{Reg}(K)$。同时，从状态 $s$ 开始能够被识别的字符串集合记作 $\text{Reg}(s)$。</p>
-<h1 id="SAM-的实现"><a href="#SAM-的实现" class="headerlink" title="SAM 的实现"></a>SAM 的实现</h1><p><del>终于，一堆无聊的废话终于过去了，终于可以上代码了。</del></p>
+        <h1 id="SPFA-判负环"><a href="#SPFA-判负环" class="headerlink" title="SPFA 判负环"></a>SPFA 判负环</h1><p><del>关于SPFA，它复活了。</del></p>
 
       
 
@@ -240,14 +190,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -303,7 +245,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://felix-werner.github.io/2020/SAM/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://felix-werner.github.io/2020/cha-fen-yue-shu/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,20 +259,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/splay/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/russian-people/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Splay学习笔记
+          russian-people
         
       </div>
     </a>
   
-  
-    <a href="/2020/russian-people/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">russian-people</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -356,7 +293,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="SAM" data-title="Suffix Automoton 学习笔记" data-url="http://felix-werner.github.io/2020/SAM/"></div>
+	<div class="ds-thread" data-thread-key="cha-fen-yue-shu" data-title="差分约束系统学习笔记" data-url="http://felix-werner.github.io/2020/cha-fen-yue-shu/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
