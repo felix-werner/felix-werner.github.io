@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://felix-werner.github.io">
   <title>苏联人 | FLWN&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这题为什么叫苏联人啊~是一道典型的模拟题目。 直接模拟每一个战车与主教所能到达的地方，即可判断出国王能够放置在哪里。 战车12345678910111213141516171819202122void castle(int x, int y) &amp;#123; &#x2F;&#x2F; (x,y)表示战车的坐标  &#x2F;&#x2F; 往上  for (int i &#x3D; x - 1; i &gt;&#x3D; 1; i--) &amp;#123;    i">
+  <meta name="description" content="这题为什么叫苏联人啊~是一道典型的模拟题目。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="苏联人">
 <meta property="og:url" content="http://felix-werner.github.io/2020/russian-people/index.html">
 <meta property="og:site_name" content="FLWN&#39;s Blog">
-<meta property="og:description" content="这题为什么叫苏联人啊~是一道典型的模拟题目。 直接模拟每一个战车与主教所能到达的地方，即可判断出国王能够放置在哪里。 战车12345678910111213141516171819202122void castle(int x, int y) &amp;#123; &#x2F;&#x2F; (x,y)表示战车的坐标  &#x2F;&#x2F; 往上  for (int i &#x3D; x - 1; i &gt;&#x3D; 1; i--) &amp;#123;    i">
+<meta property="og:description" content="这题为什么叫苏联人啊~是一道典型的模拟题目。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-09T10:27:41.403Z">
-<meta property="article:modified_time" content="2020-03-24T23:00:10.455Z">
+<meta property="article:modified_time" content="2020-03-24T23:08:10.750Z">
 <meta property="article:author" content="SP">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -176,6 +176,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>这题<del>为什么叫苏联人啊</del>~是一道典型的模拟题目。</p>
+<a id="more"></a>
 <p>直接模拟每一个战车与主教所能到达的地方，即可判断出国王能够放置在哪里。</p>
 <h3 id="战车"><a href="#战车" class="headerlink" title="战车"></a>战车</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">castle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">// (x,y)表示战车的坐标</span></span><br><span class="line">  <span class="comment">// 往上</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = x - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[i][y]) <span class="keyword">break</span>;</span><br><span class="line">    notok[i][y] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 往下</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = x + <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[i][y]) <span class="keyword">break</span>;</span><br><span class="line">    notok[i][y] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 往左</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = y - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x][i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x][i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 往右</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = y + <span class="number">1</span>; i &lt;= <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (board[x][i]) <span class="keyword">break</span>;</span><br><span class="line">    notok[x][i] = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这段代码的意义为，模拟战车珂以行动到的地方。其中第一段代码是模拟战车往上的攻击方式。如果$(x_1,y_1)$能够被$(x,y)$向上行驶攻击到，那么说明：</p>
@@ -465,14 +466,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BZOJ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
              
@@ -482,6 +475,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BZOJ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
               </li>
             
             <div class="clearfix"></div>
