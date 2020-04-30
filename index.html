@@ -173,41 +173,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>Warning：请不要使用此博客作为学习用途，这个博客是写出来我自己看的，所以很有可能前言不搭后语。</strong></p>
-<h1 id="备忘录"><a href="#备忘录" class="headerlink" title="备忘录"></a>备忘录</h1><h2 id="一些记号"><a href="#一些记号" class="headerlink" title="一些记号"></a>一些记号</h2><p>$\text{I}(x)=1$</p>
-<p>$\text{id}(x)=x$</p>
-<p>$\text{e}(x)=[x=1]$</p>
-<p>$\text{d}(x)=\sum\limits_{d|x}1$</p>
-<p>$\sigma(x)=\sum\limits_{d|x}d$</p>
-<p>$\varphi(x)$ 欧拉函数</p>
-<p>$\mu(x)$ 莫比乌斯函数</p>
-<h2 id="一些数论定理"><a href="#一些数论定理" class="headerlink" title="一些数论定理"></a>一些数论定理</h2><p>$e*F=F$，$F$ 为任何数论函数。</p>
-<p>$e=\mu * 1$，$[n=1]=\sum\limits_{d|n}\mu(d)$</p>
-<p>$id=\varphi*1$，$n=\sum\limits_{d|n}\phi(d)$</p>
-<p>$\mu*id=\varphi$</p>
-<p>$\mu*d=1$</p>
-<p>$id=\varphi *1$</p>
-<h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><p>$\text{g}(n)=\sum\limits_{d|n}{\text{f}(n)}$，则 $\text{f}(n)=\sum\limits_{d|n}\mu({\frac{n}{d}})\text{g}(d)$</p>
-<h2 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h2><p>$\text{f}(n)*\text{g}(n)=\sum\limits_{d|n}f(d)g(\frac{n}{d})$</p>
-<h1 id="Euler-函数的前缀和"><a href="#Euler-函数的前缀和" class="headerlink" title="Euler 函数的前缀和"></a>Euler 函数的前缀和</h1><p>令 $\phi(n)=\sum\limits_{i=1}^n\varphi(i)$，求 $\phi(n)$。</p>
-<script type="math/tex; mode=display">
-\begin{aligned}{}
-
-&\quad \frac{1}{2}n(n+1)\\
-
-&=\sum\limits_{i=1}^{n}i=\sum\limits_{i=1}^n\sum\limits_{d|i}\varphi(\frac{i}{d})\\
-
-&=\sum\limits_{d=1}^n\sum\limits_{1\leq i \leq n, d|k}\varphi(\frac{i}{d})\\
-
-&=\sum\limits_{d=1}^{n}\sum\limits_{i=1}^{\lfloor\frac{n}{d}\rfloor}\varphi(i)\\
-
-&=\sum\limits_{d=1}^n\phi(\lfloor \frac{n}{d}\rfloor)\\
-\end{aligned}\\
-
-\therefore \phi(n)=\frac{1}{2}n(n+1)-\sum\limits_{d=2}^{n}\phi(\lfloor\frac{n}{d}\rfloor)\\</script><p>当知道了 $\phi(\lfloor\frac{n}{d}\rfloor)$ 运用整除分块即可在 $\mathcal O(\sqrt n)$ 内算出 $\phi(n)$。</p>
-<p>利用记忆化搜索，可以防止一个值被计算多次。</p>
-<p>总时间复杂度 $\mathcal O(n^\frac{3}{4})$。</p>
-<p>因此可以使用欧拉筛筛出前 $n^\frac{2}{3}$ 的值，然后运用杜教筛，那么总时间复杂度为 $\mathcal O(n^\frac{2}{3})$。显然非常玄学，我也不知道怎么计算出来的qwq</p>
-
+        
+          <a class="article-more-a" href="/2020/number-theory-notes/#more">more >></a>
+        
       
 
       
