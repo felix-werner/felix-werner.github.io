@@ -16,7 +16,7 @@
 <meta property="og:description" content="Warning：请不要使用此博客作为学习用途，这个博客是写出来我自己看的，所以很有可能前言不搭后语。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-30T09:16:59.230Z">
-<meta property="article:modified_time" content="2020-05-01T13:18:30.909Z">
+<meta property="article:modified_time" content="2020-05-02T05:28:48.112Z">
 <meta property="article:author" content="SP1804">
 <meta property="article:tag" content="数论">
 <meta property="article:tag" content="杜教筛">
@@ -223,7 +223,16 @@
 &=\sum\limits_{d=1}^n\text{M}(\lfloor\frac{n}{d}\rfloor)
 \end{aligned}\\
 \therefore \text{M}(n)=1-\sum\limits_{d=2}^n\text{M}(\lfloor\frac{n}{d}\rfloor)</script><p>同理可以运用线性筛计算。</p>
-
+<h1 id="推广到一般情况"><a href="#推广到一般情况" class="headerlink" title="推广到一般情况"></a>推广到一般情况</h1><p>令 $\text{F}(n)=\sum\limits_{i=1}^n\text{f}(i)$。计算 $\text{F}(n)$。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\sum\limits_{i=1}^n(f*g)(i)\\
+=&\sum\limits_{i=1}^n\sum\limits_{d|i}f(\frac{i}{d})g(d)\\
+=&\sum\limits_{d=1}^n\sum\limits_{1\leq i \leq n,d|i}f(\frac{i}{d})g(d)\\
+=&\sum\limits_{d=1}^n g(d)\sum\limits_{k=1}^{\lfloor\frac{n}{d}\rfloor}f(k)\\
+=&\sum\limits_{d=1}^ng(d)F(\lfloor\frac{n}{d}\rfloor)
+\end{aligned}\\
+\therefore F(n)=\sum\limits_{i=1}^n(f*g)(i)-\sum\limits_{d=2}^ng(d)F(\lfloor\frac{n}{d}\rfloor)</script>
       
 
       
@@ -499,6 +508,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">杜教筛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
              
@@ -512,18 +533,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">题解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">杜教筛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
             
             <div class="clearfix"></div>
@@ -676,21 +685,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
